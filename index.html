@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sapnaa 💖</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:"Times New Roman", Georgia, serif;
+  color:#fff;
+  text-align:center;
+  min-height:100vh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,105,180,.35) 12%, transparent 13%),
+    radial-gradient(circle at 80% 30%, rgba(255,105,180,.35) 12%, transparent 13%),
+    radial-gradient(circle at 40% 70%, rgba(255,105,180,.35) 12%, transparent 13%),
+    linear-gradient(135deg,#ff4d6d,#ff8fab);
+  background-size:120px 120px;
+}
+
+/* START SCREEN */
+.start{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.start h1{
+  font-size:38px;
+  letter-spacing:8px;
+  line-height:1.6;
+  font-weight:normal;
+  text-shadow:0 4px 12px rgba(0,0,0,.4);
+}
+
+.start button{
+  margin-top:30px;
+  padding:10px 30px;
+  font-size:16px;
+  background:#fff;
+  color:#ff4d6d;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+/* CONTENT */
+.content{
+  display:none;
+  padding:30px 15px;
+  animation:fade 1.2s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.content img.main{
+  width:210px;
+  height:250px;
+  object-fit:cover;
+  border:3px solid #fff;
+  border-radius:8px;
+  margin:20px 0;
+}
+
+.content h2{
+  font-size:26px;
+  letter-spacing:4px;
+  font-weight:normal;
+  margin-bottom:12px;
+}
+
+.content h3{
+  font-size:20px;
+  letter-spacing:3px;
+  font-weight:normal;
+  margin-bottom:20px;
+}
+
+.content p{
+  font-size:16px;
+  line-height:1.8;
+  max-width:420px;
+  margin:auto;
+}
+
+/* TEDDY FLOAT UP */
+.teddy{<img src ="sapna.jpg"
+  position:fixed;
+  bottom:-100px;
+  width:70px;
+  pointer-events:none;
+  animation:floatUp linear infinite;
+  opacity:0.9;
+}
+
+@keyframes floatUp{
+  to{
+    transform:translateY(-120vh);
+    opacity:0;
+  }
+}
+
+/* HEARTS */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:22px;
+  animation:heartUp 6s linear infinite;
+}
+
+@keyframes heartUp{
+  to{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
+}
+
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  width:7px;
+  height:7px;
+  top:-10px;
+  animation:fall linear infinite;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" src="C:\Users\Sonali\OneDrive\Desktop\happy-birthday-sapna\music.ogg" loop></audio>
+
+<!-- START -->
+<div class="start" id="start">
+  <h1>
+    H A P P Y I E S T<br>
+     B I R T H D A Y
+  </h1>
+  <button onclick="openWish()">Click Here</button>
+</div>
+
+<!-- MESSAGE -->
+<div class="content" id="content">
+  <img src="C:\Users\Sonali\OneDrive\Desktop\happy-birthday-sapna\photo.jpeg" class="main" alt="sapna">
+  <h2>HAPPIEST BIRTHDAY</h2>
+  <h3>MY LOVE SAPNAA</h3>
+  <font face="Bookman old style"><b><i>
+  <p><font face="Arial" size="4"><i>
+    Happiest Birthday to a sweetest girl ever🥳🎂🥳 SAPNAAA. you deserve every good things that 
+    comes your way I hope your birthday is sweet as you, i want to see you win in your life and 
+    i want to see you absolutely smashed every single dream you have. i don't always know what 
+    to do or say but i will always be here for you no matter what happened and i hope you know
+    world is pretty because you are in it. And i wish this year your all dreams come true. 
+    i am wishing you happiest birthday to you🎈🎂🎈 sapnaa. i may not be there to hold 
+    your hand but I'm always missing you, loving you and thanking god everyday for giving me 
+    someone like you ❤️ Today, Isn't just your birthday, it's a day my favorite soul was born 
+    it's a the day the world got truly beautiful, kind, strong and full of light .
+    Happiest birthday to you sweetest girl.💕
+  </p>
+</div>
+
+<script>
+function openWish(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("content").style.display="block";
+  document.getElementById("music").play();
+  confetti();
+  hearts();
+  teddyBears();
+}
+
+/* CONFETTI */
+function confetti(){
+  for(let i=0;i<150;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    document.body.appendChild(c);
+    c.style.background=["#fff","#ff4081","#ffd1dc"][Math.floor(Math.random()*3)];
+    c.style.left=Math.random()*100+"vw";
+    c.style.animationDuration=(Math.random()*3+2)+"s";
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+/* HEARTS */
+function hearts(){
+  setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(Math.random()*20+15)+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  },400);
+}
+
+/* TEDDY BEARS FLOAT UP */
+function teddyBears(){
+  setInterval(()=>{
+    let t=document.createElement("img");
+    t.className="teddy";
+    t.src=Math.random()>0.5?"teddy1.gif":"teddy2.gif";
+    t.style.left=Math.random()*100+"vw";
+    t.style.animationDuration=(Math.random()*4+6)+"s";
+    document.body.appendChild(t);
+    setTimeout(()=>t.remove(),10000);
+  },1800);
+}
+</script>
+
+</body>
+</html>
